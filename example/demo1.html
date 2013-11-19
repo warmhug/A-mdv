@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="../mdv.js"></script>
+    <link rel="stylesheet" href="demo.css"/>
+</head>
+<body>
+    <div class="wraper" mdv-app mdv-controller="main">
+        <ul class="nav">
+            <li class="it it{{$index}}"
+                mdv-repeat="item in nav"
+                mdv-class="{ 'cur': item.cur }"
+                mdv-click="do()">
+                {{item.text}}  {{time}}
+                <span mdv-class="{ 'cur': item.aaa }">{{time}}</span>
+                <p mdv-repeat="a in content">
+                    {{item.text}}  {{a.name}}
+                    <span attr="{{$index}}"
+                          mdv-repeat="item in a.words"
+                          mdv-class="{ 'me': item.me }"  >
+                        {{item}}
+                    </span>
+                </p>
+            </li>
+            <p mdv-repeat="item in content">
+                {{item.name}}
+            </p>
+        </ul>
+        <!--hello, time is:
+        <span class="time">{{time}}</span>
+        <div class="content">
+            <p mdv-repeat="item in content">
+                <h3>{{item.name}}</h3>
+                <p><span mdv-repeat="word in item.words">{{word}}</span></p>
+            </p>
+            <p class="loading">loading...</p>
+        </div>-->
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+</html>

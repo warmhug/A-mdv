@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="../mdv.js"></script>
+    <link rel="stylesheet" href="demo.css"/>
+</head>
+<body>
+    <div class="wraper" mdv-app mdv-controller="main">
+        <!-- 导航 -->
+        <ul class="nav">
+            <li class="item item{{$index}}"
+                mdv-repeat="item in nav"
+                mdv-class="{ 'cur': item.cur }"
+                mdv-click="do()">
+                {{item.text}}
+            </li>
+            <!--<script type="text/html">
+                {{#nav}}
+                <li class="item"
+                    mdv-class="{ 'cur': cur }"
+                    mdv-click="do($index)"
+                    mdv-bind="{ 'text': {{text}} }">{{text}}</li>
+                {{/nav}}
+            </script>-->
+        </ul>
+        <!-- 内容 -->
+        hello, time is:
+        <span class="time">{{time}}</span>
+        <div class="content">
+            <!-- 模板 -->
+            <!--<script type="text/html">
+                <p>my name is {{name}} --- and I'm {{age}} year old.</p>
+            </script>-->
+            <p mdv-repeat="item in content">
+                my name is {{item.name}} --- and I'm {{item.age}} year old. <br>
+                now:{{time}}
+                <a href=""><img src="" alt=""/></a>
+                text
+            </p>
+            <p class="loading">loading...</p>
+        </div>
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+</html>

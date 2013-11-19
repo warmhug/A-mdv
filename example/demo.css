@@ -1,0 +1,35 @@
+
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.nav{
+    border: 1px solid #ccc;
+    display: -webkit-box;
+    margin: 15px auto;
+}
+.item{
+    -webkit-box-flex: 1;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+.cur{
+    color: red;
+}
+.none{
+    display: none;
+}
+
+.content{
+    min-height: 300px;
+    border: 1px solid #ccc;
+}
+.loading{
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+}

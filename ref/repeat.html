@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>JS Bin</title>
+	<script src="http://code.angularjs.org/1.0.7/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="Ctrl">
+        <ul>
+            <li>xxx</li>
+            <li class="{{$index}}" data-ng-repeat="item in list" data-ng-click="do($index)">{{item}}--{{$index}} --
+                {{$first}} -- {{$last}}
+                <span data-ng-repeat="a in list">{{a}}--{{a.a}}</span>
+            </li>
+            <li>yyy</li>
+            <li class="{{$index}}" data-ng-repeat="item in list" data-ng-click="do($index)">{{item.a}}</li>
+            <li>zzz</li>
+        </ul>
+        <input type="button" value="click" data-ng-click="btn()" />
+    </div>
+
+	<script>
+        /*angular.module('app', []);
+        (function () {
+            function Ctrl($scope) {
+                $scope.list = ['a','b','c'];
+            }
+        })()*/
+
+        angular.module('app', []).controller('Ctrl', ['$scope', function ($scope) {
+            $scope.list = [{'a':'aaa'},'b','c'];
+            $scope.do = function (index) {
+                alert(index);
+                $scope.list[2] = ['ddd'];
+                $scope.list.unshift('000');
+            }
+            var flag = true;
+            $scope.btn = function () {
+                if(flag){
+                    $scope.list = [];
+                    flag = false;
+                } else {
+                    $scope.list = ['a'];
+                    flag = true;
+                }
+            }
+        }]);
+
+	</script>
+
+</body>
+</html>
